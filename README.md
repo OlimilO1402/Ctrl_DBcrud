@@ -6,18 +6,19 @@
 [![Github All Releases](https://img.shields.io/github/downloads/OlimilO1402/Ctrl_DBcrud/total.svg)](https://github.com/OlimilO1402/Ctrl_DBcrud/releases/download/v2026.2.8/DBcrud_v2026.2.8.zip)
 ![GitHub followers](https://img.shields.io/github/followers/OlimilO1402?style=social)
 
-For this repo you will also need the repos:  
-* CCollection
-* ModalDialog
+For this repo you will also need the classes:  
+* class CCollection from the repo [List_Collection](https://github.com/OlimilO1402/List_Collection) 
+* class ModalDialog from the repo [Ctrl_ModalDialog](https://github.com/OlimilO1402/Ctrl_ModalDialog) 
   
 This project covers all functions we need for creating a simple UI for creating a very complex object data hierarchy structure.  
-In cunjunction with databases everyone thinks of CRUD which are the 4 basics:
+In conjunction with databases everyone thinks of CRUD which are the 4 basic functions:
 * Create 
 * Read 
 * Update 
 * Delete  
 
-in our app we have classes and lists, imho basically this is all we need
+in our app we have classes representing records of data and lists representing tables of records. 
+Imho basically this is all we need to be able to create a somewhat complex application.
 
 Create:
 -------
