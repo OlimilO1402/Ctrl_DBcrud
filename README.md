@@ -15,12 +15,12 @@ In cunjunction with databases everyone thinks of CRUD which are the 4 basics:
 * Create 
 * Read 
 * Update 
-* Delete.
-in our app we have classes and lists, basically this is all we need
+* Delete  
+in our app we have classes and lists, imho basically this is all we need
 
 Create:
 -------
-By creating an object, we could think of 4 basic scenarios. 
+When creating an object, we could think of 4 basic scenarios. 
 Creating a new ...
 * ... fresh object, editing it and adding it at the end of a list
 * ... object by cloning an existing one, 
