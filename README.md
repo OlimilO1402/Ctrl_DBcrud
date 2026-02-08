@@ -16,6 +16,7 @@ In cunjunction with databases everyone thinks of CRUD which are the 4 basics:
 * Read 
 * Update 
 * Delete  
+
 in our app we have classes and lists, imho basically this is all we need
 
 Create:
@@ -33,19 +34,17 @@ Read:
 -----
 being able to explore all objects just by manually reading through all objects of a complex datastructure
 but not only reading it but also functions for helping me finding certain objects, like 
-* moveing an object in the list up or down for the purpose of grouping objects visually standing together
+* moving an object in the list up or down for the purpose of grouping objects visually standing together
 * sorting all objects in the list according to a certain property
 * searching for certain objects or the one object, in all objects and all properties of all objects
 
 Update:
 -------
-being able to edit every object separately in one dialog, or maybe for convenience editing certain properties of several objects together at once in a list.
+being able to edit every object separately in one dialog, or maybe for convenience editing certain 
+properties of several objects together at once in a list.
 
 Delete:
 -------
 being able to delete every unwanted, unnecessary or needless object.
 
-
-[Link text Here](https://link-url-here.org) 
-
-![IEnumVarImpl Image](Resources/IEnumVarImpl.png "IEnumVarImpl Image")
+![DBcrud Image](Resources/DBcrud.png "DBcrud Image")

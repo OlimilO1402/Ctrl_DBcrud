@@ -61,6 +61,13 @@ Friend Sub New_(Col As CCollection, ListBox, BtnAdd, Optional BtnAddClone, Optio
     If Not IsMissing(BtnSearch) Then Set mBtnSearch = BtnSearch
 End Sub
 
+'Copy to MNew.bas
+'Public Function DBcrud(Col As CCollection, ByVal IsHashed As Boolean, ListBox, _
+'                       BtnAdd As CommandButton, Optional BtnAddClone, Optional BtnInsert, Optional BtnInsertClone, Optional BtnEdit, _
+'                       Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch) As DBcrud
+'    Set DBcrud = New DBcrud: DBcrud.New_ Col, ListBox, BtnAdd, BtnAddClone, BtnInsert, BtnInsertClone, BtnEdit, BtnDelete, BtnMoveUp, BtnMoveDown, BtnSortUp, BtnSortDown, BtnSearch
+'End Function
+
 Private Sub mBtnAdd_Click()
     Dim Obj As Object
     RaiseEvent OnEdit(Obj)
