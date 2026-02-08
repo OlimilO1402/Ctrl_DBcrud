@@ -38,7 +38,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   4440
       TabIndex        =   10
-      ToolTipText     =   "Search"
+      ToolTipText     =   "Search for a specific text in the names of all Persons"
       Top             =   600
       Width           =   495
    End
@@ -47,7 +47,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   4440
       TabIndex        =   9
-      ToolTipText     =   "Sort Down"
+      ToolTipText     =   "Sort Down, sort all objects in descending order"
       Top             =   120
       Width           =   495
    End
@@ -56,7 +56,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   3960
       TabIndex        =   8
-      ToolTipText     =   "Sort Up"
+      ToolTipText     =   "Sort Up, sort all objects in ascending order"
       Top             =   120
       Width           =   495
    End
@@ -65,7 +65,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   3480
       TabIndex        =   7
-      ToolTipText     =   "Move Down"
+      ToolTipText     =   "Move the selected item Down"
       Top             =   120
       Width           =   495
    End
@@ -74,7 +74,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   3000
       TabIndex        =   6
-      ToolTipText     =   "Move Up"
+      ToolTipText     =   "Move the selected item Up"
       Top             =   120
       Width           =   495
    End
@@ -83,7 +83,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   2520
       TabIndex        =   5
-      ToolTipText     =   "Delete"
+      ToolTipText     =   "Delete the current selected Person object"
       Top             =   120
       Width           =   495
    End
@@ -92,7 +92,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   2040
       TabIndex        =   4
-      ToolTipText     =   "Edit"
+      ToolTipText     =   "Edit the current selected Person object"
       Top             =   120
       Width           =   495
    End
@@ -101,7 +101,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   1560
       TabIndex        =   3
-      ToolTipText     =   "Insert Clone"
+      ToolTipText     =   "Insert a clone of the current Person object above this position"
       Top             =   120
       Width           =   495
    End
@@ -110,7 +110,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   1080
       TabIndex        =   2
-      ToolTipText     =   "Insert"
+      ToolTipText     =   "Insert a new Person object above the current position"
       Top             =   120
       Width           =   495
    End
@@ -119,7 +119,7 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   600
       TabIndex        =   1
-      ToolTipText     =   "Add Clone"
+      ToolTipText     =   "Add a clone of the current Person object at the end of the list"
       Top             =   120
       Width           =   495
    End
@@ -128,12 +128,12 @@ Begin VB.Form FMain
       Height          =   495
       Left            =   120
       TabIndex        =   0
-      ToolTipText     =   "Add"
+      ToolTipText     =   "Add a new Person object at the end of the list"
       Top             =   120
       Width           =   495
    End
    Begin VB.Label Label1 
-      Caption         =   "Label1"
+      Caption         =   "Ptr"
       Height          =   255
       Left            =   120
       TabIndex        =   13
@@ -173,6 +173,7 @@ Private WithEvents PersonCRUD As DBcrud
 Attribute PersonCRUD.VB_VarHelpID = -1
 
 Private Sub Form_Load()
+    Me.Caption = App.ProductName & " v" & App.Major & "." & App.Minor & "." & App.Revision
     Set PersonCRUD = MNew.DBcrud(MApp.Persons, False, Me.LstPersons, Me.BtnPersonAdd, Me.BtnPersonAddClone, Me.BtnPersonInsert, Me.BtnPersonInsertClone, Me.BtnPersonEdit, Me.BtnPersonDelete, Me.BtnPersonMoveUp, Me.BtnPersonMoveDown, Me.BtnPersonSortUp, Me.BtnPersonSortDwn, Me.BtnPersonSearch)
 End Sub
 

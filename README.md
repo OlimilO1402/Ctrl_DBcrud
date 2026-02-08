@@ -1,9 +1,9 @@
 # Ctrl_DBcrud  
 ## UI-toolbar all CRUD, create read update delete AND add, add clone, insert, insert clone, move up, move down, sort up, sort down, search
 
-[![GitHub](https://img.shields.io/github/license/OlimilO1402/Ctrl_DBcrud?style=plastic)](https://github.com/OlimilO1402/Ctrl_DBcrud/blob/master/LICENSE) 
+[![GitHub](https://img.shields.io/github/license/OlimilO1402/Ctrl_DBcrud?style=plastic)](https://github.com/OlimilO1402/Ctrl_DBcrud/blob/main/LICENSE) 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/OlimilO1402/Ctrl_DBcrud?style=plastic)](https://github.com/OlimilO1402/Ctrl_DBcrud/releases/latest)
-[![Github All Releases](https://img.shields.io/github/downloads/OlimilO1402/Ctrl_DBcrud/total.svg)](https://github.com/OlimilO1402/Ctrl_DBcrud/releases/download/v1.0.0/DBcrud_v2025.12.10.zip)
+[![Github All Releases](https://img.shields.io/github/downloads/OlimilO1402/Ctrl_DBcrud/total.svg)](https://github.com/OlimilO1402/Ctrl_DBcrud/releases/download/v2026.2.8/DBcrud_v2026.2.8.zip)
 ![GitHub followers](https://img.shields.io/github/followers/OlimilO1402?style=social)
 
 For this repo you will also need the repos:  
