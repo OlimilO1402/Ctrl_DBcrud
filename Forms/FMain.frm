@@ -27,7 +27,7 @@ Begin VB.Form FMain
       Width           =   4815
    End
    Begin VB.TextBox TxtPersonSearch 
-      Height          =   495
+      Height          =   375
       Left            =   120
       TabIndex        =   11
       Top             =   600
@@ -190,3 +190,17 @@ Private Sub PersonCRUD_OnEdit(Obj_inout As Object)
     End If
     Set Obj_inout = p
 End Sub
+
+'Private WithEvents PersonCRUD As DBcrud
+'Private Sub Form_Load()
+'    Set PersonCRUD = MNew.DBcrud(MApp.Persons, False, Me.LstPersons, Me.BtnPersonAdd, Me.BtnPersonAddClone, Me.BtnPersonInsert, Me.BtnPersonInsertClone, Me.BtnPersonEdit, Me.BtnPersonDelete, Me.BtnPersonMoveUp, Me.BtnPersonMoveDown, Me.BtnPersonSortUp, Me.BtnPersonSortDwn, Me.BtnPersonSearch)
+'End Sub
+'Private Sub PersonCRUD_OnEdit(Obj_inout As Object)
+'    Dim p As Person: Set p = IIf(Obj_inout Is Nothing, MNew.PersonDefault, Obj_inout)
+'    If MNew.ModalDialog(FPerson, FPerson.BtnOK, FPerson.BtnCancel).ShowDialog(p, Me) = vbCancel Then
+'        Set Obj_inout = Nothing
+'        Exit Sub
+'    End If
+'    Set Obj_inout = p
+'End Sub
+

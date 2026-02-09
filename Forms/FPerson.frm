@@ -104,12 +104,12 @@ Begin VB.Form FPerson
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
-      Caption         =   "Birthdate"
+      Caption         =   "Date of Birth"
       Height          =   255
       Left            =   120
       TabIndex        =   2
       Top             =   600
-      Width           =   780
+      Width           =   1095
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True

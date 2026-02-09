@@ -67,6 +67,22 @@ End Sub
 '                       Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch) As DBcrud
 '    Set DBcrud = New DBcrud: DBcrud.New_ Col, ListBox, BtnAdd, BtnAddClone, BtnInsert, BtnInsertClone, BtnEdit, BtnDelete, BtnMoveUp, BtnMoveDown, BtnSortUp, BtnSortDown, BtnSearch
 'End Function
+'
+''How to use it?
+''==============
+''place all the buttons on the form, or maybe copy them from the Form FMain in this project, everything you need on a form is:
+'Private WithEvents PersonCRUD As DBcrud
+'Private Sub Form_Load()
+'    Set PersonCRUD = MNew.DBcrud(MApp.Persons, False, Me.LstPersons, Me.BtnPersonAdd, Me.BtnPersonAddClone, Me.BtnPersonInsert, Me.BtnPersonInsertClone, Me.BtnPersonEdit, Me.BtnPersonDelete, Me.BtnPersonMoveUp, Me.BtnPersonMoveDown, Me.BtnPersonSortUp, Me.BtnPersonSortDwn, Me.BtnPersonSearch)
+'End Sub
+'Private Sub PersonCRUD_OnEdit(Obj_inout As Object)
+'    Dim p As Person: Set p = IIf(Obj_inout Is Nothing, MNew.PersonDefault, Obj_inout)
+'    If MNew.ModalDialog(FPerson, FPerson.BtnOK, FPerson.BtnCancel).ShowDialog(p, Me) = vbCancel Then
+'        Set Obj_inout = Nothing
+'        Exit Sub
+'    End If
+'    Set Obj_inout = p
+'End Sub
 
 Private Sub mBtnAdd_Click()
     Dim Obj As Object
@@ -136,7 +152,8 @@ End Sub
 
 Private Sub mBtnMovUp_Click()
     Dim li As Long: li = mListBox.ListIndex
-    If li < 1 Then MsgBox "Select object first": Exit Sub
+    If li < 0 Then MsgBox "Select object first": Exit Sub
+    If li = 0 Then Exit Sub 'already the topmost object
     m_List.MoveUp li + 1
     LBCB_MoveUp mListBox, li
     mListBox.ListIndex = li - 1
