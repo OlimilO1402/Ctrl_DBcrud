@@ -152,7 +152,7 @@ Option Explicit
 'c = Create
 'r = Read
 'u = Update
-'d = delete
+'d = Delete
 '
 'this are obiously commands in an DB-application-ui
 'in fact it can mean much more like:
@@ -191,6 +191,8 @@ Private Sub PersonCRUD_OnEdit(Obj_inout As Object)
     Set Obj_inout = p
 End Sub
 
+''How to use it:
+''==============
 'Private WithEvents PersonCRUD As DBcrud
 'Private Sub Form_Load()
 '    Set PersonCRUD = MNew.DBcrud(MApp.Persons, False, Me.LstPersons, Me.BtnPersonAdd, Me.BtnPersonAddClone, Me.BtnPersonInsert, Me.BtnPersonInsertClone, Me.BtnPersonEdit, Me.BtnPersonDelete, Me.BtnPersonMoveUp, Me.BtnPersonMoveDown, Me.BtnPersonSortUp, Me.BtnPersonSortDwn, Me.BtnPersonSearch)
