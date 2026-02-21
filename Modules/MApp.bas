@@ -1,8 +1,8 @@
 Attribute VB_Name = "MApp"
 Option Explicit
-Public Persons As CCollection
+Private m_Persons As CCollection '(Of Person)
 
 Sub Main()
-    Set Persons = MNew.CCollection(True)
-    FMain.Show
+    Set m_Persons = MNew.CCollection(True)
+    FMain.ShowDialog m_Persons
 End Sub

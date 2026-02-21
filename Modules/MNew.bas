@@ -1,8 +1,8 @@
 Attribute VB_Name = "MNew"
 Option Explicit
 
-Public Function CCollection(ByVal IsHashed As Boolean, Optional Col As Collection = Nothing) As CCollection
-    Set CCollection = New CCollection: CCollection.New_ IsHashed, Col
+Public Function CCollection(ByVal IsHashed As Boolean, Optional Col As Collection = Nothing, Optional Name As String = "") As CCollection
+    Set CCollection = New CCollection: CCollection.New_ IsHashed, Col, Name
 End Function
 
 Public Function ModalDialog(aDialog As Form, BtnOK As CommandButton, BtnCancel As CommandButton) As ModalDialog
@@ -11,8 +11,8 @@ End Function
 
 Public Function DBcrud(Col As CCollection, ByVal IsHashed As Boolean, ListBox, _
                        BtnAdd As CommandButton, Optional BtnAddClone, Optional BtnInsert, Optional BtnInsertClone, Optional BtnEdit, _
-                       Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch) As DBcrud
-    Set DBcrud = New DBcrud: DBcrud.New_ Col, ListBox, BtnAdd, BtnAddClone, BtnInsert, BtnInsertClone, BtnEdit, BtnDelete, BtnMoveUp, BtnMoveDown, BtnSortUp, BtnSortDown, BtnSearch
+                       Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch, Optional TxtSearch) As DBcrud
+    Set DBcrud = New DBcrud: DBcrud.New_ Col, ListBox, BtnAdd, BtnAddClone, BtnInsert, BtnInsertClone, BtnEdit, BtnDelete, BtnMoveUp, BtnMoveDown, BtnSortUp, BtnSortDown, BtnSearch, TxtSearch
 End Function
 
 Public Function Person(ByVal Name As String, ByVal BirthDate As Date, ByVal BirthCity As String, ByVal EyeColor As ENaturalEyeColor, ByVal HairColor As ENaturalHairColor) As Person

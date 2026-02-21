@@ -75,6 +75,14 @@ Public Sub SetParams(Name, BirthDay, BirthCity, NaturalEyeColor, NaturalHairColo
     If Not IsMissing(NaturalHairColor) Then m_HairColor = NaturalHairColor
 End Sub
 
+Public Function Find(Text As String) As Boolean
+    Find = InStr(1, m_Name, Text) > 0:                               If Find Then Exit Function
+    Find = InStr(1, m_BirthD, Text) > 0:                             If Find Then Exit Function
+    Find = InStr(1, m_BirthCity, Text) > 0:                          If Find Then Exit Function
+    Find = InStr(1, ENaturalEyeColor_ToStr(m_EyeColor), Text) > 0:   If Find Then Exit Function
+    Find = InStr(1, ENaturalHairColor_ToStr(m_HairColor), Text) > 0: If Find Then Exit Function
+End Function
+
 Public Property Get Name() As String
     Name = m_Name
 End Property

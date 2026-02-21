@@ -172,9 +172,17 @@ Option Explicit
 Private WithEvents PersonCRUD As DBcrud
 Attribute PersonCRUD.VB_VarHelpID = -1
 
+Private m_Persons As CCollection '(Of Person)
+
 Private Sub Form_Load()
     Me.Caption = App.ProductName & " v" & App.Major & "." & App.Minor & "." & App.Revision
-    Set PersonCRUD = MNew.DBcrud(MApp.Persons, False, Me.LstPersons, Me.BtnPersonAdd, Me.BtnPersonAddClone, Me.BtnPersonInsert, Me.BtnPersonInsertClone, Me.BtnPersonEdit, Me.BtnPersonDelete, Me.BtnPersonMoveUp, Me.BtnPersonMoveDown, Me.BtnPersonSortUp, Me.BtnPersonSortDwn, Me.BtnPersonSearch)
+End Sub
+
+Public Sub ShowDialog(Persons As CCollection)
+    Set m_Persons = Persons
+    m_Persons.ToListBox Me.LstPersons, , True
+    Set PersonCRUD = MNew.DBcrud(m_Persons, False, Me.LstPersons, Me.BtnPersonAdd, Me.BtnPersonAddClone, Me.BtnPersonInsert, Me.BtnPersonInsertClone, Me.BtnPersonEdit, Me.BtnPersonDelete, Me.BtnPersonMoveUp, Me.BtnPersonMoveDown, Me.BtnPersonSortUp, Me.BtnPersonSortDwn, Me.BtnPersonSearch, Me.TxtPersonSearch)
+    Me.Show
 End Sub
 
 Private Sub LstPersons_Click()
@@ -189,6 +197,11 @@ Private Sub PersonCRUD_OnEdit(Obj_inout As Object)
         Exit Sub
     End If
     Set Obj_inout = p
+End Sub
+
+Private Sub PersonCRUD_OnFound(found As CCollection)
+    Dim fm As New FMain
+    fm.ShowDialog found
 End Sub
 
 ''How to use it:
@@ -206,3 +219,6 @@ End Sub
 '    Set Obj_inout = p
 'End Sub
 
+Private Sub TxtPersonSearch_Change()
+
+End Sub

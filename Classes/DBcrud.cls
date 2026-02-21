@@ -35,18 +35,20 @@ Private WithEvents mBtnSrtDwn As CommandButton '10. [ |^]  Absteigend,  alle Obj
 Attribute mBtnSrtDwn.VB_VarHelpID = -1
 Private WithEvents mBtnSearch As CommandButton '11. [°\ ]  Suchen,      ein Objekt suchen, einen Suchdialog anzeigen, Ergebnisliste anzeigen
 Attribute mBtnSearch.VB_VarHelpID = -1
-
+Private WithEvents mTxtSearch As TextBox       '12. [Editbox]
+Attribute mTxtSearch.VB_VarHelpID = -1
 Private WithEvents mListBox   As ListBox
 Attribute mListBox.VB_VarHelpID = -1
 Private m_List                As CCollection
 Private m_IsHashed            As Boolean
 Public Event OnEdit(Obj_inout As Object)
+Public Event OnFound(found As CCollection)
 
 'höh man braucht die Info ob in der Col Keys oder Indices
 
 'should we have the listbox also in here
 'should we have the list also in here
-Friend Sub New_(Col As CCollection, ListBox, BtnAdd, Optional BtnAddClone, Optional BtnInsert, Optional BtnInsertClone, Optional BtnEdit, Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch)
+Friend Sub New_(Col As CCollection, ListBox, BtnAdd, Optional BtnAddClone, Optional BtnInsert, Optional BtnInsertClone, Optional BtnEdit, Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch, Optional TxtSearch)
     Set m_List = Col: m_IsHashed = m_List.IsHashed: Set mListBox = ListBox
     If Not IsMissing(BtnAdd) Then Set mBtnAdd = BtnAdd
     If Not IsMissing(BtnAddClone) Then Set mBtnAddCln = BtnAddClone
@@ -59,12 +61,13 @@ Friend Sub New_(Col As CCollection, ListBox, BtnAdd, Optional BtnAddClone, Optio
     If Not IsMissing(BtnSortUp) Then Set mBtnSrtUp = BtnSortUp
     If Not IsMissing(BtnSortDown) Then Set mBtnSrtDwn = BtnSortDown
     If Not IsMissing(BtnSearch) Then Set mBtnSearch = BtnSearch
+    If Not IsMissing(TxtSearch) Then Set mTxtSearch = TxtSearch
 End Sub
 
 'Copy to MNew.bas
 'Public Function DBcrud(Col As CCollection, ByVal IsHashed As Boolean, ListBox, _
 '                       BtnAdd As CommandButton, Optional BtnAddClone, Optional BtnInsert, Optional BtnInsertClone, Optional BtnEdit, _
-'                       Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch) As DBcrud
+'                       Optional BtnDelete, Optional BtnMoveUp, Optional BtnMoveDown, Optional BtnSortUp, Optional BtnSortDown, Optional BtnSearch, Optional TxtSearch) As DBcrud
 '    Set DBcrud = New DBcrud: DBcrud.New_ Col, ListBox, BtnAdd, BtnAddClone, BtnInsert, BtnInsertClone, BtnEdit, BtnDelete, BtnMoveUp, BtnMoveDown, BtnSortUp, BtnSortDown, BtnSearch
 'End Function
 '
@@ -194,7 +197,12 @@ Private Sub mBtnSrtDwn_Click()
 End Sub
 
 Private Sub mBtnSearch_Click()
-    '
+    Dim s As String: s = mTxtSearch.Text
+    If Len(s) = 0 Then Exit Sub
+    Dim found As CCollection: Set found = m_List.Find(s)
+    If found Is Nothing Then Exit Sub
+    If found.Count = 0 Then Exit Sub
+    RaiseEvent OnFound(found)
 End Sub
 
 Private Sub mListBox_Click()
@@ -222,4 +230,20 @@ End Sub
 
 Private Sub mListBox_KeyUp(KeyCode As Integer, Shift As Integer)
     '
+End Sub
+
+Private Sub mTxtSearch_Change()
+    '
+End Sub
+
+Private Sub mTxtSearch_KeyDown(KeyCode As Integer, Shift As Integer)
+    '
+End Sub
+
+Private Sub mTxtSearch_KeyPress(KeyAscii As Integer)
+    '
+End Sub
+
+Private Sub mTxtSearch_KeyUp(KeyCode As Integer, Shift As Integer)
+    If KeyCode = KeyCodeConstants.vbKeyReturn Then mBtnSearch.Value = True '_Click
 End Sub
